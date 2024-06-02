@@ -3,9 +3,6 @@ from faker import Faker
 fake = Faker("ru_RU")
 
 
-# print(fake.name())  # Генерирует случайное имя
-# print(fake.email())  # Генерирует случайный адрес электронной почты
-# print(fake.address())  # Генерирует случайный адрес
 def _cleaning_phone_numbers(number):
     """
     Очищает номер.
@@ -95,4 +92,5 @@ def generate_dataset(count):
     return dataset
 
 
-
+if __name__ == '__main__':
+    pass
