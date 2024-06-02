@@ -85,6 +85,12 @@ def generate_dataset(count):
     dataset = []
 
     for index in range(0, count):
+        if index % 5 == 0:
+            name = names[index]
+            email = ' '
+            number = numbers[index]
+            dataset.append({'name': name, 'email': email, 'number': number})
+            continue
         name = names[index]
         email = emails[index]
         number = numbers[index]
