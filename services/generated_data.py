@@ -31,7 +31,7 @@ def _check_len_number_phone(number):
         raise Exception(f'количество цифр в номере: {number}  - {len(number)}, а должно быть ровно 11')
 
 
-def generate_phone_numbers(count):
+def _generate_phone_numbers(count):
     """
     Генерирует случайным образом телефонные номера
     :param count: количество номеров
@@ -47,7 +47,7 @@ def generate_phone_numbers(count):
     return numbers
 
 
-def generate_names(count):
+def _generate_names(count):
     """
     Генерирует случайные имена
     :param count: количество имен
@@ -60,7 +60,7 @@ def generate_names(count):
     return names
 
 
-def generate_emails(count):
+def _generate_emails(count):
     """
     Генерирует случайные email адреса
     :param count: количество адресов
@@ -73,7 +73,26 @@ def generate_emails(count):
     return emails
 
 
-if __name__ == '__main__':
-    numbers = generate_phone_numbers(10)
-    names = generate_names(10)
-    emails = generate_emails(10)
+def generate_dataset(count):
+    """
+    Генерирует набор данных.
+    Набор данных представляет собой список со словарями,
+    которые содержат данные о человеке(полное имя, номер телефона, email адрес)
+    :param count:
+    :return: список со словарями
+    """
+    names = _generate_names(count)
+    emails = _generate_emails(count)
+    numbers = _generate_phone_numbers(count)
+
+    dataset = []
+
+    for index in range(0, count):
+        name = names[index]
+        email = emails[index]
+        number = numbers[index]
+        dataset.append({'name': name, 'email': email, 'number': number})
+    return dataset
+
+
+
