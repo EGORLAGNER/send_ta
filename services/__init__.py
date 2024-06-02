@@ -1,0 +1,1 @@
+from services.generated_data import generate_phone_numbers
